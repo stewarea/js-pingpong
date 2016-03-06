@@ -1,21 +1,22 @@
 function enter(a) {
-  text = "";
-  for (i = a; i > 0 ; i++)
-    if (i % 15 === 0)
-      return "pingpong";
-    else if (i % 5 === 0)
-      return "pong";
-    else if (i % 3 === 0)
-      return "ping";
-    else
-      return i;
-    text += i ;
+  var text = "";
+  for (var i = 1 ; i <= a ; i++)
+  {
+    if (i % 15 === 0) {
+      text += "pingpong <br>";
+    }  else if (i % 5 === 0) {
+      text += "pong <br>";
+    }  else if (i % 3 === 0) {
+      text += "ping <br>";
+    }  else {
+      text += i + "<br>";
+    }
 
-  // {
-  //   // text += i + " bottles of beer on the wall " + i  + " bottles of beer.  You take one down, pass it around " + (i-1) + " bottles of beer on the wall." + "<br>";
-  // }
+  }
   return text;
 }
+
+
 
 $(document).ready(function() {
   $("form#enter").submit(function(event) {
