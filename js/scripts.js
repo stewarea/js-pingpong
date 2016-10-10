@@ -1,33 +1,22 @@
-function enter(a) {
-  var text = "";
-  for (var i = 1 ; i <= a ; i++)
-  {
-    if (i % 15 === 0) {
-      text += "pingpong <br>";
-    }  else if (i % 5 === 0) {
-      text += "pong <br>";
-    }  else if (i % 3 === 0) {
-      text += "ping <br>";
-    }  else {
-      text += i + "<br>";
-    }
-
-  }
-  return text;
+function Calculator(skinName) {
+  this.skin = skinName;
 }
 
+Calculator.prototype.pingPong = function(goal) {
+  var output = [];
+  for (var i = 1; i <= goal; i++) {
+    if (i % 15 === 0) {
+      output.push("ping-pong");
+    } else if (i % 3 === 0) {
+      output.push("ping");
+    } else if (i % 5 === 0) {
+      output.push("pong");
+    } else  {
+      output.push(i);
+    }
+  }
+  return output;
+};
 
 
-$(document).ready(function() {
-  $("form#enter").submit(function(event) {
-    var a = parseInt($("input#number").val());
-    var result = enter(a);
-
-    $("#pingpongdisplay").html(result);
-
-    $("#result").show();
-
-    event.preventDefault();
-
-  });
-});
+exports.calculatorModule = Calculator;
